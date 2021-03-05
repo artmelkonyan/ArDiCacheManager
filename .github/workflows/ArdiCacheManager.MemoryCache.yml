@@ -18,6 +18,6 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: Restore dependencies
-      run: dotnet restore ./src/ArdiCacheManager.sln
+      run: dotnet restore ./src/ArDiCacheManager.sln
     - name: Build
-      run: dotnet build ./src/ArdiCacheManager.MemoryCache/ArdiCacheManager.MemoryCache.csproj --no-restore
+      run: dotnet build ./src/ArDiCacheManager.MemoryCache/ArDiCacheManager.MemoryCache.csproj --no-restore
