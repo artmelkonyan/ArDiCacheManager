@@ -1,4 +1,4 @@
-name: .NET
+name: .net core 3.1.x
 
 on:
   push:
