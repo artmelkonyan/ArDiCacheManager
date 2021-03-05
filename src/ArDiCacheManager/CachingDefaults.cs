@@ -12,8 +12,8 @@ namespace ArDiCacheManager
     public static partial class CachingDefaults
     {
         /// <summary>
-        /// Gets the default cache time in minutes
+        /// Gets the default cache time in seconsds
         /// </summary>
-        public static int CacheTime => 60;
+        public static int CacheTime => 60000;
     }
 }
