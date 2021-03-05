@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ArdiCacheManager.MemoryCache\ArdiCacheManager.MemoryCache.csproj" />
+    <ProjectReference Include="..\ArdiCacheManager.MemoryCache\ArDiCacheManager.MemoryCache.csproj" />
   </ItemGroup>
 
 </Project>

@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestConsoleApp", "TestConsoleApp\TestConsoleApp.csproj", "{4F353A3A-FD80-4940-8A51-F517954E8C3B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArdiCacheManager.Redis", "ArdiCacheManager.Redis\ArdiCacheManager.Redis.csproj", "{E94312F7-01F6-4E2A-A4DA-D981F2D89D43}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArDiCacheManager.Redis", "ArdiCacheManager.Redis\ArDiCacheManager.Redis.csproj", "{E94312F7-01F6-4E2A-A4DA-D981F2D89D43}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArdiCacheManager.MemoryCache", "ArdiCacheManager.MemoryCache\ArdiCacheManager.MemoryCache.csproj", "{44E2F640-CBA7-404C-972D-BB29FA398CFF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArDiCacheManager.MemoryCache", "ArdiCacheManager.MemoryCache\ArDiCacheManager.MemoryCache.csproj", "{44E2F640-CBA7-404C-972D-BB29FA398CFF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArDiCacheManager", "ArDiCacheManager\ArDiCacheManager.csproj", "{9B25E071-9E84-4C1C-9292-85A1958F0454}"
 EndProject
