@@ -2,9 +2,7 @@
 using Microsoft.Extensions.Primitives;
 using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -45,7 +43,7 @@ namespace ArDiCacheManager.MemoryCache
             //set expiration time for the passed cache key
             var options = new MemoryCacheEntryOptions
             {
-                AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(key.CacheTime)
+                AbsoluteExpirationRelativeToNow = TimeSpan.FromSeconds(key.CacheTime)
             };
 
             //add tokens to clear cache entries
@@ -147,14 +145,7 @@ namespace ArDiCacheManager.MemoryCache
             return _memoryCache.TryGetValue(key.Key, out _);
         }
 
-        /// <summary>
-        /// Removes the value with the specified key from the cache
-        /// </summary>
-        /// <param name="key">Key of cached item</param>
-        public void Remove(string key)
-        {
-            _memoryCache.Remove(key);
-        }
+
 
         /// <summary>
         /// Removes items by key prefix
@@ -165,6 +156,59 @@ namespace ArDiCacheManager.MemoryCache
             _prefixes.TryRemove(prefix, out var tokenSource);
             tokenSource?.Cancel();
             tokenSource?.Dispose();
+        }
+
+        /// <summary>
+        /// Removes the value with the specified key from the cache
+        /// </summary>
+        /// <param name="key">Key of cached item</param>
+        public void Remove(string key)
+        {
+            _memoryCache.Remove(key);
+        }
+
+        /// <summary>
+        /// Get a cached item. If it's not in the cache yet, then load and cache it
+        /// </summary>
+        /// <typeparam name="T">Type of cached item</typeparam>
+        /// <param name="key">Cache key</param>
+        /// <param name="acquire">Function to load item if it's not in the cache yet</param>
+        /// <returns>The cached value associated with the specified key</returns>
+        public T Get<T>(string key, Func<T> acquire)
+        {
+            return Get(new CacheKey(key), acquire);
+        }
+
+        /// <summary>
+        /// Get a cached item. If it's not in the cache yet, then load and cache it
+        /// </summary>
+        /// <typeparam name="T">Type of cached item</typeparam>
+        /// <param name="key">Cache key</param>
+        /// <param name="acquire">Function to load item if it's not in the cache yet</param>
+        /// <returns>The cached value associated with the specified key</returns>
+        public Task<T> GetAsync<T>(string key, Func<Task<T>> acquire)
+        {
+            return GetAsync(new CacheKey(key), acquire);
+        }
+
+        /// <summary>
+        /// Adds the specified key and object to the cache
+        /// </summary>
+        /// <param name="key">Key of cached item</param>
+        /// <param name="data">Value for caching</param>
+        public void Set(string key, object data)
+        {
+            Set(new CacheKey(key), data);
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether the value associated with the specified key is cached
+        /// </summary>
+        /// <param name="key">Key of cached item</param>
+        /// <returns>True if item already is in cache; otherwise false</returns>
+        public bool IsSet(string key)
+        {
+            return IsSet(new CacheKey(key));
         }
 
         /// <summary>
@@ -205,7 +249,7 @@ namespace ArDiCacheManager.MemoryCache
             }
 
             _disposed = true;
-        }
+        }      
 
         #endregion
     }
