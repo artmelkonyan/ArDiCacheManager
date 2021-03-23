@@ -1,18 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.1;net472</TargetFrameworks>
+    <TargetFrameworks>netstandard2.1;net5;net472</TargetFrameworks>
     <Authors>Arthur Melkonyan</Authors>
     <Company>ArDi</Company>
-    <Version>1.0.0.0</Version>
+    <Version>1.0.1</Version>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Copyright>Copyright © Arthur Melkonyan 2020</Copyright>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="5.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\ArDiCacheManager\ArDiCacheManager.Abstractions.csproj" />
+    <PackageReference Include="ArDiCacheManager.Abstractions" Version="1.0.0" />
   </ItemGroup>
 
 </Project>
