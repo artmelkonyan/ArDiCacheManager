@@ -1,9 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.1;net472</TargetFrameworks>
+    <TargetFrameworks>netstandard2.1;netcoreapp3.1;net45;net472</TargetFrameworks>
     <Authors>Arthur Melkonyan</Authors>
     <Company>ArDi</Company>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Copyright>2020</Copyright>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.0-alpha</Version>
+    <RootNamespace>ArDiCacheManager</RootNamespace>
   </PropertyGroup>
 
 </Project>
