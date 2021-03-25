@@ -17,12 +17,12 @@ namespace TestConsoleApp.Framework
             IArDiCacheManager cacheManager = new ArDiMemoryCacheManager(cache);
             var strKey = "mycacheitem";
             var key = new CacheKey(strKey);
-            var result = cacheManager.Get(strKey, () =>
+            var result = cacheManager.GetOrAdd(strKey, () =>
             {
                 return "Hello from cacge";
             });
 
-            var result2 = cacheManager.Get(strKey, () =>
+            var result2 = cacheManager.GetOrAdd(strKey, () =>
             {
                 return "Hello from cacge";
             });

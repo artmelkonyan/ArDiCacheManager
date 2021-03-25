@@ -74,7 +74,7 @@ namespace ArDiCacheManager
         public List<string> Prefixes { get; protected set; } = new List<string>();
 
         /// <summary>
-        /// Cache time in minutes
+        /// Cache time in seconds
         /// </summary>
         public int CacheTime { get; set; } = CachingDefaults.CacheTime;
     }

@@ -69,6 +69,7 @@ namespace ArDiCacheManager.MemoryCache
         /// <param name="key">Cache key</param>
         /// <param name="acquire">Function to load item if it's not in the cache yet</param>
         /// <returns>The cached value associated with the specified key</returns>
+        [Obsolete("Use GetOrAdd<T> instead of  Get<T>")]
         public T Get<T>(CacheKey key, Func<T> acquire)
         {
             if (key.CacheTime <= 0)
@@ -89,6 +90,33 @@ namespace ArDiCacheManager.MemoryCache
         }
 
         /// <summary>
+        /// Get a cached item. If it's not in the cache yet, then load and cache it
+        /// </summary>
+        /// <typeparam name="T">Type of cached item</typeparam>
+        /// <param name="key">Cache key</param>
+        /// <param name="acquire">Function to load item if it's not in the cache yet</param>
+        /// <returns>The cached value associated with the specified key</returns>
+        public T GetOrAdd<T>(CacheKey key, Func<T> acquire)
+        {
+            if (key.CacheTime <= 0)
+                return acquire();
+
+            var result = _memoryCache.GetOrCreate(key.Key, entry =>
+            {
+                entry.SetOptions(PrepareEntryOptions(key));
+
+                return acquire();
+            });
+
+            //do not cache null value
+            if (result == null)
+                Remove(key);
+
+            return result;
+        }
+
+
+        /// <summary>
         /// Removes the value with the specified key from the cache
         /// </summary>
         /// <param name="key">Key of cached item</param>
@@ -104,7 +132,35 @@ namespace ArDiCacheManager.MemoryCache
         /// <param name="key">Cache key</param>
         /// <param name="acquire">Function to load item if it's not in the cache yet</param>
         /// <returns>The cached value associated with the specified key</returns>
+        [Obsolete("Use GetOrAddAsync<T> instead of  GetAsync<T>")]
         public async Task<T> GetAsync<T>(CacheKey key, Func<Task<T>> acquire)
+        {
+            if (key.CacheTime <= 0)
+                return await acquire();
+
+            var result = await _memoryCache.GetOrCreateAsync(key.Key, async entry =>
+            {
+                entry.SetOptions(PrepareEntryOptions(key));
+
+                return await acquire();
+            });
+
+            //do not cache null value
+            if (result == null)
+                Remove(key);
+
+            return result;
+        }
+
+
+        /// <summary>
+        /// Get a cached item. If it's not in the cache yet, then load and cache it
+        /// </summary>
+        /// <typeparam name="T">Type of cached item</typeparam>
+        /// <param name="key">Cache key</param>
+        /// <param name="acquire">Function to load item if it's not in the cache yet</param>
+        /// <returns>The cached value associated with the specified key</returns>
+        public async Task<T> GetOrAddAsync<T>(CacheKey key, Func<Task<T>> acquire)
         {
             if (key.CacheTime <= 0)
                 return await acquire();
@@ -174,7 +230,8 @@ namespace ArDiCacheManager.MemoryCache
         /// <typeparam name="T">Type of cached item</typeparam>
         /// <param name="key">Cache key</param>
         /// <param name="acquire">Function to load item if it's not in the cache yet</param>
-        /// <returns>The cached value associated with the specified key</returns>
+        /// <returns>The cached value associated with the specified key</returns>        
+        [Obsolete("Use GetOrAdd<T> instead of  Get<T>")]
         public T Get<T>(string key, Func<T> acquire)
         {
             return Get(new CacheKey(key), acquire);
@@ -186,10 +243,35 @@ namespace ArDiCacheManager.MemoryCache
         /// <typeparam name="T">Type of cached item</typeparam>
         /// <param name="key">Cache key</param>
         /// <param name="acquire">Function to load item if it's not in the cache yet</param>
+        /// <returns>The cached value associated with the specified key</returns>                
+        public T GetOrAdd<T>(string key, Func<T> acquire)
+        {
+            return GetOrAdd(new CacheKey(key), acquire);
+        }
+
+        /// <summary>
+        /// Get a cached item. If it's not in the cache yet, then load and cache it
+        /// </summary>
+        /// <typeparam name="T">Type of cached item</typeparam>
+        /// <param name="key">Cache key</param>
+        /// <param name="acquire">Function to load item if it's not in the cache yet</param>
         /// <returns>The cached value associated with the specified key</returns>
+        [Obsolete("Use GetOrAddAsync<T> instead of  GetAsync<T>")]
         public Task<T> GetAsync<T>(string key, Func<Task<T>> acquire)
         {
             return GetAsync(new CacheKey(key), acquire);
+        }
+
+        /// <summary>
+        /// Get a cached item. If it's not in the cache yet, then load and cache it
+        /// </summary>
+        /// <typeparam name="T">Type of cached item</typeparam>
+        /// <param name="key">Cache key</param>
+        /// <param name="acquire">Function to load item if it's not in the cache yet</param>
+        /// <returns>The cached value associated with the specified key</returns>        
+        public Task<T> GetOrAddAsync<T>(string key, Func<Task<T>> acquire)
+        {
+            return GetOrAddAsync(new CacheKey(key), acquire);
         }
 
         /// <summary>
