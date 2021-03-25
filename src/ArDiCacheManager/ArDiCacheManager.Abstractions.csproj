@@ -7,8 +7,11 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Copyright>Copyright © Arthur Melkonyan 2020</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <RootNamespace>ArDiCacheManager</RootNamespace>
+    <Description>This package contains interfaces and basic types for organizing caching.</Description>
+    <PackageReleaseNotes>In this release, method names have been corrected for a clearer description of their functionality, and some methods have been marked as deprecated.</PackageReleaseNotes>
+    <PackageTags>Cache, MemoryCache</PackageTags>
   </PropertyGroup>
 
 </Project>

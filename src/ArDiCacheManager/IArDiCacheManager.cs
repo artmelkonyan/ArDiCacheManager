@@ -12,6 +12,7 @@ namespace ArDiCacheManager
         /// <param name="key">Cache key</param>
         /// <param name="acquire">Function to load item if it's not in the cache yet</param>
         /// <returns>The cached value associated with the specified key</returns>
+        [Obsolete("Use GetOrAdd<T> instead of  Get<T>")]
         T Get<T>(CacheKey key, Func<T> acquire);
 
         /// <summary>
@@ -21,6 +22,16 @@ namespace ArDiCacheManager
         /// <param name="key">Cache key</param>
         /// <param name="acquire">Function to load item if it's not in the cache yet</param>
         /// <returns>The cached value associated with the specified key</returns>
+        T GetOrAdd<T>(CacheKey key, Func<T> acquire);
+
+        /// <summary>
+        /// Get a cached item. If it's not in the cache yet, then load and cache it
+        /// </summary>
+        /// <typeparam name="T">Type of cached item</typeparam>
+        /// <param name="key">Cache key</param>
+        /// <param name="acquire">Function to load item if it's not in the cache yet</param>
+        /// <returns>The cached value associated with the specified key</returns>
+        [Obsolete("Use GetOrAdd<T> instead of  Get<T>")]
         T Get<T>(string key, Func<T> acquire);
 
         /// <summary>
@@ -30,6 +41,16 @@ namespace ArDiCacheManager
         /// <param name="key">Cache key</param>
         /// <param name="acquire">Function to load item if it's not in the cache yet</param>
         /// <returns>The cached value associated with the specified key</returns>
+        T GetOrAdd<T>(string key, Func<T> acquire);
+
+        /// <summary>
+        /// Get a cached item. If it's not in the cache yet, then load and cache it
+        /// </summary>
+        /// <typeparam name="T">Type of cached item</typeparam>
+        /// <param name="key">Cache key</param>
+        /// <param name="acquire">Function to load item if it's not in the cache yet</param>
+        /// <returns>The cached value associated with the specified key</returns>
+        [Obsolete("Use GetOrAddAsync<T> instead of  GetAsync<T>")]
         Task<T> GetAsync<T>(CacheKey key, Func<Task<T>> acquire);
 
         /// <summary>
@@ -39,7 +60,26 @@ namespace ArDiCacheManager
         /// <param name="key">Cache key</param>
         /// <param name="acquire">Function to load item if it's not in the cache yet</param>
         /// <returns>The cached value associated with the specified key</returns>
+        Task<T> GetOrAddAsync<T>(CacheKey key, Func<Task<T>> acquire);
+
+        /// <summary>
+        /// Get a cached item. If it's not in the cache yet, then load and cache it
+        /// </summary>
+        /// <typeparam name="T">Type of cached item</typeparam>
+        /// <param name="key">Cache key</param>
+        /// <param name="acquire">Function to load item if it's not in the cache yet</param>
+        /// <returns>The cached value associated with the specified key</returns>
+        [Obsolete("Use GetOrAddAsync<T> instead of GetAsync<T>")]
         Task<T> GetAsync<T>(string key, Func<Task<T>> acquire);
+
+        /// <summary>
+        /// Get a cached item. If it's not in the cache yet, then load and cache it
+        /// </summary>
+        /// <typeparam name="T">Type of cached item</typeparam>
+        /// <param name="key">Cache key</param>
+        /// <param name="acquire">Function to load item if it's not in the cache yet</param>
+        /// <returns>The cached value associated with the specified key</returns>
+        Task<T> GetOrAddAsync<T>(string key, Func<Task<T>> acquire);
 
         /// <summary>
         /// Removes the value with the specified key from the cache
