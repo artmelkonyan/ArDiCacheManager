@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ArDiCacheManager.MemoryCache\ArDiCacheManager.MemoryCache.csproj" />
+    <ProjectReference Include="..\ArDiCacheManager.Redis\ArDiCacheManager.Redis.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netcoreapp3.1</TargetFrameworks>
+    <Authors>Arthur Melkonyan</Authors>
+    <Company>ArDi</Company>
+    <Version>1.0.0</Version>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Copyright>Copyright © Arthur Melkonyan 2020</Copyright>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageTags>Redis</PackageTags>
+    <Description>This package contains implementation of IArDiCacheManager for cache in Redis.</Description>    
+  </PropertyGroup>
+
+
+  <ItemGroup>    
+    <PackageReference Include="Microsoft.AspNetCore.DataProtection.StackExchangeRedis" Version="3.1.4" />    
+    <PackageReference Include="ArDiCacheManager.Abstractions" Version="1.0.2" />
+    <PackageReference Include="RedLock.net" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.4" />
+  </ItemGroup>
+
+</Project>

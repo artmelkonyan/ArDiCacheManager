@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestConsoleApp", "TestConso
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsoleApp.Framework", "TestConsoleApp.Framework\TestConsoleApp.Framework.csproj", "{07DDA5CA-1AD9-42A0-B3AD-995A86CB88DF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArDiCacheManager.Redis", "ArDiCacheManager.Redis\ArDiCacheManager.Redis.csproj", "{2A3059EA-C084-45FB-869D-6BC9BDCBCEFF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,18 @@ Global
 		{07DDA5CA-1AD9-42A0-B3AD-995A86CB88DF}.Release|x64.Build.0 = Release|Any CPU
 		{07DDA5CA-1AD9-42A0-B3AD-995A86CB88DF}.Release|x86.ActiveCfg = Release|Any CPU
 		{07DDA5CA-1AD9-42A0-B3AD-995A86CB88DF}.Release|x86.Build.0 = Release|Any CPU
+		{2A3059EA-C084-45FB-869D-6BC9BDCBCEFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A3059EA-C084-45FB-869D-6BC9BDCBCEFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A3059EA-C084-45FB-869D-6BC9BDCBCEFF}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2A3059EA-C084-45FB-869D-6BC9BDCBCEFF}.Debug|x64.Build.0 = Debug|Any CPU
+		{2A3059EA-C084-45FB-869D-6BC9BDCBCEFF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2A3059EA-C084-45FB-869D-6BC9BDCBCEFF}.Debug|x86.Build.0 = Debug|Any CPU
+		{2A3059EA-C084-45FB-869D-6BC9BDCBCEFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A3059EA-C084-45FB-869D-6BC9BDCBCEFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A3059EA-C084-45FB-869D-6BC9BDCBCEFF}.Release|x64.ActiveCfg = Release|Any CPU
+		{2A3059EA-C084-45FB-869D-6BC9BDCBCEFF}.Release|x64.Build.0 = Release|Any CPU
+		{2A3059EA-C084-45FB-869D-6BC9BDCBCEFF}.Release|x86.ActiveCfg = Release|Any CPU
+		{2A3059EA-C084-45FB-869D-6BC9BDCBCEFF}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
