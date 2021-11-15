@@ -11,7 +11,7 @@ namespace TestConsoleApp
             var cache = new Microsoft.Extensions.Caching.Memory.MemoryCache(new Microsoft.Extensions.Caching.Memory.MemoryCacheOptions());
 
             IArDiCacheManager cacheManager = new ArDiMemoryCacheManager(cache);
-            var strKey = "mycacheitem";
+            var strKey = "mycacheitem sdsd";
             var key = new CacheKey(strKey);
             var result = cacheManager.Get(strKey, () =>
             {
