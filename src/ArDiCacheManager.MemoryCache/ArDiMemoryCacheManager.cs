@@ -83,8 +83,8 @@ namespace ArDiCacheManager.MemoryCache
             });
 
             //do not cache null value
-            if (result == null)
-                Remove(key);
+            //if (result == null)
+            //    Remove(key);
 
             return result;
         }
@@ -109,8 +109,8 @@ namespace ArDiCacheManager.MemoryCache
             });
 
             //do not cache null value
-            if (result == null)
-                Remove(key);
+            //if (result == null)
+            //    Remove(key);
 
             return result;
         }
