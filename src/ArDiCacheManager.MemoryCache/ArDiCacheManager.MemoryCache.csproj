@@ -4,7 +4,7 @@
     <TargetFrameworks>netstandard2.0;netstandard2.1;</TargetFrameworks>
     <Authors>Arthur Melkonyan</Authors>
     <Company>ArDi</Company>
-    <Version>1.0.3</Version>
+    <Version>1.0.4</Version>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Copyright>Copyright © Arthur Melkonyan 2020</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
